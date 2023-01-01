@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auctus Bazaar - Listing</title>
+    <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<nav class="navbar navbar-expand-md bg-light">
+    <div class="container-fluid">
+        <a href="index.html" class="navbar-brand">
+            <img src="/assets/AB-logo.png" alt="logo" class="nav-logo">
+        </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+            aria-label="expand navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto mx-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">Profile</a>
+                </li>
+            </ul>
+            <div class="nav-buttons d-flex justify-content-center gap-3">
+                <button type="button" class="btn regLogAdd btn-primary btn-block btn-w" data-bs-toggle="modal"
+                    data-bs-target="#loginModal" id="loginBtn">Log in</button>
+                <button class="btn regLogAdd btn-outline-secondary btn-block btn-w" data-bs-toggle="modal"
+                    data-bs-target="#registerModal" id="registerBtn">Register</button>
+                <h5 class="align-self-center" id="credits"></h5>
+                <button class="d-none btn btn-secondary btn-block btn-w" id="logoutBtn">Log out</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Login</h1>
+                    <div class="feedback text-danger" id="loginFeedback"></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="modalForm" id="loginForm">
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control email"
+                                title="Needs to be a @stud.noroff.no adress" id="loginEmailt"
+                                placeholder="name@example.com" pattern="[\w\-.]+@stud.noroff.no$" required />
+                            <label for="loginEmail">Email</label>
+                            <div class="invalid-feedback">Needs to be a @stud.noroff.no email</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" class="form-control password" id="loginPassword"
+                                placeholder="Password" minlength="8" required />
+                            <label for="loginPassword">Password</label>
+                            <div class="invalid-feedback">Invalid password</div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-w mx-auto" type="submit">Log in</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span>If you don't have an account</span>
+                    <button class="btn btn-secondary" data-bs-target="#registerModal"
+                        data-bs-toggle="modal">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="registerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="regForm">Register</h1>
+                    <div class="text-danger m-3 text-center" id="registerFeedback"></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="registerForm" id="registerForm" novalidate>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="name" class="form-control email"
+                                title="Only letters, number and underscore ( _ ) allowed in name" id="registerName"
+                                placeholder="name" pattern="[\w]+" required />
+                            <label for="registerName">Name</label>
+                            <div class="invalid-feedback">Only letters, number and underscore ( _ ) allowed</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control email"
+                                title="Needs to be a @stud.noroff.no adress" id="registerEmail"
+                                placeholder="name@stud.noroff.no" pattern="[\w\-.]+@stud.noroff.no$" required />
+                            <label for="registerEmail">Email</label>
+                            <div class="invalid-feedback">Needs to be a @stud.noroff.no email</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="url" name="avatar" class="form-control" id="url"
+                                placeholder="https://url.jpg" />
+                            <label for="url">Avatar URL</label>
+                            <div class="invalid-feedback">Example: website.com/image.jpg</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" class="form-control password" id="registerPassword"
+                                placeholder="Password" minlength="8" title="Minimum 8 characters" required />
+                            <label for="registerPassword">Password</label>
+                            <div class="invalid-feedback">Minimum 8 characters</div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-secondary btn-w mx-auto" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span>Already have an account?</span>
+                    <button class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="container-fluid bg-primary index-banner d-flex align-items-center justify-content-between flex-column flex-md-row">
+        <div class="search-container m-1">
+            <div class="input-group w-40">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-secondary">search</button>
+            </div>
+        </div>
+        <div class="add-container m-1">
+            <a class="btn btn-secondary d-none" id="addBtn" href="/pages/newListing.html">
+                + Add listing +
+            </a>
+        </div>
+        <div class="sort-container m-1">
+            <div class="col d-flex sort-form align-items-center">
+                <select class="form-select" id="sort">
+                    <option id="placeholder" value="" selected>Sort by..</option>
+                    <option id="title" value="sort=title&sortOrder=asc">
+                        Title
+                    </option>
+                    <option id="ends" value="sort=endsAt&sortOrder=asc">
+                        End soon
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-fluid list-container" id="listing-container">
+        </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/validate.js"></script>
+<script type="module" src="../src/js/index.js"></script>
+
+</html>

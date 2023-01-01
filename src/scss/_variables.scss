@@ -1,0 +1,65 @@
+// nav
+
+.nav-logo {
+    max-width: 150px;
+}
+
+.nav-item {
+    font-size: large;
+}
+
+// colors
+
+$primary: #9acbc2;
+$secondary: #000000;
+
+// buttons
+
+.btn-w {
+    width: 90px !important;
+}
+
+// card
+
+.card {
+    text-decoration: none;
+    max-width: 250px;
+
+    img {
+        max-width: 200px;
+        max-height: 100%;
+        padding: 10px;
+        align-self: center;
+    }
+}
+
+// carousel
+
+.carousel {
+    max-width: 350px;
+    height: 100%;
+}
+
+// banner
+
+.index-banner {
+    height: 150px;
+}
+
+.sort-container {
+    min-width: 20%;
+}
+
+// listings
+
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+}
+
+.profile-card {
+    max-width: 300px;
+    height: 100%;
+}
